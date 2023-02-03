@@ -36,7 +36,7 @@ const seedUsers = async (project: Project): Promise<string[]> => {
 				projectId: project.id
 			},
 			{
-				id: userIds[3],
+				id: userIds[2],
 				email: 'gaben@jira.guest',
 				name: 'Lord Gaben',
 				avatarUrl: 'https://i.ibb.co/6RJ5hq6/gaben.jpg',
