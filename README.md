@@ -7,7 +7,7 @@ This simplified Jira clone is built with SvelteKit, Typescript, Zod, Supabase, P
 - Clone the project
 
 ```sh
-git
+git clone https://github.com/sytanta/jira-clone-sveltekit
 ```
 
 - Install dependencies
