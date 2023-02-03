@@ -1,15 +1,13 @@
 import { z } from 'zod';
-import { zfd } from 'zod-form-data';
 
-export const commentBodySchem = zfd.text(
-	z
-		.string({ required_error: 'Comment content is required' })
-		.max(50000, 'Comment must be at most 50000 characters')
-		.trim()
-);
+export const commentBodySchem = z
+	.string({ required_error: 'Comment content is required' })
+	.min(1, 'Comment content is required')
+	.max(50000, 'Comment must be at most 50000 characters')
+	.trim();
 
-export const commentFormSchema = zfd.formData({
+export const commentFormSchema = z.object({
 	body: commentBodySchem,
-	userId: zfd.text(z.string({ required_error: 'User id is required' })),
-	issueId: zfd.text(z.string({ required_error: 'Issue id is required' }))
+	userId: z.string({ required_error: 'User id is required' }),
+	issueId: z.string({ required_error: 'Issue id is required' })
 });

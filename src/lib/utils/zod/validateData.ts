@@ -1,9 +1,10 @@
 import type { Schema } from 'zod';
 
 export function validateFormData(formData: FormData, zodSchema: Schema) {
-	const validation = zodSchema.safeParse(formData);
+	const validation = zodSchema.safeParse(Object.fromEntries(formData));
 
 	if (validation.success) return { success: true, data: validation.data };
+
 	return { success: false, errors: validation.error.flatten().fieldErrors };
 }
 

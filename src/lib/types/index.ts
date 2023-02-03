@@ -1,4 +1,4 @@
-import type { zfd } from 'zod-form-data';
+import type { z } from 'zod';
 
 import type { Comment, Issue, Project, User } from '@prisma/client';
 
@@ -30,7 +30,7 @@ export type CommentForUpdate = Partial<Comment> & { id: string };
 export type CommentDataSafe = IssueDataSafe['Comment'][number];
 
 /* Zod schemas */
-export type ZodSchema = ReturnType<typeof zfd.formData>;
+export type ZodSchema = ReturnType<typeof z.object>;
 
 /* Form errors */
 export type FormErrors = Record<string, string[] | undefined> | null | undefined;
