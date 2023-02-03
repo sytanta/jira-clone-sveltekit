@@ -1,0 +1,136 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  // relationMode      = "prisma"
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Project {
+  id       String          @id @db.Uuid
+  name     String          @db.VarChar(100)
+  category ProjectCategory
+
+  url         String?
+  description String?
+
+  User  User[]
+  Issue Issue[]
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Issue {
+  id           String        @id @db.Uuid
+  title        String        @db.VarChar(200)
+  type         IssueType
+  status       IssueStatus
+  priority     IssuePriority
+  listPosition Float         @db.DoublePrecision
+
+  reporter   User   @relation("reporter", fields: [reporterId], references: [id])
+  reporterId String @db.Uuid
+
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId String  @db.Uuid
+
+  description     String?
+  descriptionText String?
+  estimate        Int?
+  timeSpent       Int?
+  timeRemaining   Int?
+
+  User    UsersOnIssues[]
+  Comment Comment[]
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  @@index([reporterId])
+  @@index([projectId])
+}
+
+model Comment {
+  id   String @id @db.Uuid
+  body String @db.VarChar(50000)
+
+  User    User   @relation(fields: [userId], references: [id])
+  userId  String @db.Uuid
+  Issue   Issue  @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  issueId String @db.Uuid
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  @@index([userId])
+  @@index([issueId])
+}
+
+model User {
+  id        String  @id @db.Uuid
+  name      String  @db.VarChar(100)
+  email     String  @db.VarChar(200) // should be unique, abort here for creating demo data without conflict
+  avatarUrl String? @db.VarChar(2000)
+
+  project   Project? @relation(fields: [projectId], references: [id])
+  projectId String?  @db.Uuid
+
+  reportedIssues Issue[] @relation("reporter")
+
+  Issue UsersOnIssues[]
+
+  Comment Comment[]
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  @@index([projectId])
+}
+
+model UsersOnIssues {
+  issue   Issue  @relation(fields: [issueId], references: [id])
+  issueId String @db.Uuid
+  user    User   @relation(fields: [userId], references: [id])
+  userId  String @db.Uuid
+
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  @@id([issueId, userId])
+  @@index([issueId])
+  @@index([userId])
+}
+
+enum ProjectCategory {
+  software
+  marketing
+  business
+}
+
+enum IssueType {
+  task
+  bug
+  story
+}
+
+enum IssueStatus {
+  backlog
+  selected
+  inprogress
+  done
+}
+
+enum IssuePriority {
+  highest
+  high
+  medium
+  low
+  lowest
+}

@@ -1,0 +1,118 @@
+@charset "utf-8";
+@import './fonts.scss';
+@import './variables.scss';
+@import './_normalize.scss';
+@import './_base.scss';
+
+/* form */
+fieldset {
+	border: none;
+}
+
+/* icons */
+.icon-bug::before {
+	content: '\e90f';
+}
+.icon-stopwatch::before {
+	content: '\e914';
+}
+.icon-task::before {
+	content: '\e910';
+}
+.icon-story::before {
+	content: '\e911';
+}
+.icon-arrow-down::before {
+	content: '\e90a';
+}
+.icon-arrow-left-circle::before {
+	content: '\e917';
+}
+.icon-arrow-up::before {
+	content: '\e90b';
+}
+.icon-chevron-down::before {
+	content: '\e900';
+}
+.icon-chevron-left::before {
+	content: '\e901';
+}
+.icon-chevron-right::before {
+	content: '\e902';
+}
+.icon-chevron-up::before {
+	content: '\e903';
+}
+.icon-board::before {
+	content: '\e904';
+}
+.icon-help::before {
+	content: '\e905';
+}
+.icon-link::before {
+	content: '\e90c';
+}
+.icon-menu::before {
+	content: '\e916';
+}
+.icon-more::before {
+	content: '\e90e';
+}
+.icon-attach::before {
+	content: '\e90d';
+}
+.icon-plus::before {
+	content: '\e906';
+}
+.icon-search::before {
+	content: '\e907';
+}
+.icon-issues::before {
+	content: '\e908';
+}
+.icon-settings::before {
+	content: '\e909';
+}
+.icon-close::before {
+	content: '\e913';
+}
+.icon-feedback::before {
+	content: '\e918';
+}
+.icon-trash::before {
+	content: '\e912';
+}
+.icon-github::before {
+	content: '\e915';
+}
+.icon-shipping::before {
+	content: '\e91c';
+}
+.icon-component::before {
+	content: '\e91a';
+}
+.icon-reports::before {
+	content: '\e91b';
+}
+.icon-page::before {
+	content: '\e919';
+}
+.icon-calendar::before {
+	content: '\e91d';
+}
+.icon-arrow-left::before {
+	content: '\e91e';
+}
+.icon-arrow-right::before {
+	content: '\e91f';
+}
+
+/* Button as icon wrapper */
+.icon-button {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+
+	@include clickable;
+}
