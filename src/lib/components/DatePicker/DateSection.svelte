@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import moment from 'moment';
-	import { range, times } from 'lodash';
+	import range from 'lodash/range';
+	import times from 'lodash/times';
 
 	import { formatDate, formatDateTimeForAPI } from '$lib/utils/dateTime';
 

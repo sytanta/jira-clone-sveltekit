@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { uniqueId } from 'lodash';
+	import uniqueId from 'lodash/uniqueId';
 
 	import type { Writable } from 'svelte/store';
 	import type { FormErrors } from '$lib/types';

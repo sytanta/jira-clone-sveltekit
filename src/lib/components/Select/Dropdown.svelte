@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { uniq } from 'lodash';
+	import uniq from 'lodash/uniq';
 
 	import type { SelectOption } from './types';
 

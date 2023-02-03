@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { debounce } from 'lodash';
+	import debounce from 'lodash/debounce';
 
 	import type { IconCode } from '$lib/constants/icon';
 

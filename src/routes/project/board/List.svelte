@@ -1,6 +1,6 @@
 <script lang="ts">
 	import moment from 'moment';
-	import { intersection } from 'lodash';
+	import intersection from 'lodash/intersection';
 
 	import type { IssueStatus } from '@prisma/client';
 	import type { ProjectDataSafe } from '$lib/types';

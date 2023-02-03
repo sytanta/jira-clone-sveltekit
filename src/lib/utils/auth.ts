@@ -1,5 +1,5 @@
 import jwt, { type SignOptions } from 'jsonwebtoken';
-import { isPlainObject } from 'lodash';
+import isPlainObject from 'lodash/isPlainObject';
 
 import { JWT_SECRET } from '$env/static/private';
 

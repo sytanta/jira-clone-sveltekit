@@ -11,7 +11,7 @@
 
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { debounce } from 'lodash';
+	import debounce from 'lodash/debounce';
 
 	import type Quill from 'quill';
 

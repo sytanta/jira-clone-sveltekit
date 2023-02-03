@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { xor } from 'lodash';
+	import xor from 'lodash/xor';
 
 	import type { IssueFilters } from './types';
 

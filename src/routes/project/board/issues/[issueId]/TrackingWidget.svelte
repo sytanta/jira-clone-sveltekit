@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import { isNil } from 'lodash';
+	import isNil from 'lodash/isNil';
 
 	import type { IssueDataSafe } from '$lib/types';
 
