@@ -69,7 +69,7 @@ const seedIssues = (project: Project, users: User[]): Promise<Issue[]> => {
 				User: {
 					create: [
 						{
-							assignedBy: users[0].name,
+							assignedBy: users[0].id,
 							assignedAt: new Date(),
 							user: {
 								connect: {
@@ -96,7 +96,7 @@ const seedIssues = (project: Project, users: User[]): Promise<Issue[]> => {
 				User: {
 					create: [
 						{
-							assignedBy: users[0].name,
+							assignedBy: users[0].id,
 							assignedAt: new Date(),
 							user: {
 								connect: {
@@ -105,7 +105,7 @@ const seedIssues = (project: Project, users: User[]): Promise<Issue[]> => {
 							}
 						},
 						{
-							assignedBy: users[1].name,
+							assignedBy: users[1].id,
 							assignedAt: new Date(),
 							user: {
 								connect: {
