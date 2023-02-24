@@ -16,8 +16,7 @@
 
 			if (res.ok) goto('/project/board');
 		} catch (e: unknown) {
-			console.log('11111111111111111111111111111', e)
-			console.log('Error creating account: ', (e as Error).message);
+ 			console.log('Error creating account: ', (e as Error).message);
 		}
 	});
 </script>
